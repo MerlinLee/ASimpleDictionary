@@ -14,7 +14,7 @@ plugins {
 }
 
 // Define the main class for the application
-mainClassName = 'Server'
+mainClassName = 'ServerController'
 
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.

@@ -17,7 +17,7 @@ public class DemoGUI {
         frame.setContentPane(new DemoGUI().panel1);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
-        Server server = Server.getServerInstance();
+        ServerController serverController = ServerController.getServerInstance();
         frame.setVisible(true);
     }
 
