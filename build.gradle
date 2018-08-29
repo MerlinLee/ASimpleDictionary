@@ -14,7 +14,7 @@ plugins {
 }
 
 // Define the main class for the application
-mainClassName = 'ServerGUI'
+mainClassName = 'Server'
 
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
