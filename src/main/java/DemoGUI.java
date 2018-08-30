@@ -7,7 +7,7 @@ public class DemoGUI {
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                ServerController serverController = ServerController.getServerInstance();
             }
         });
     }
@@ -17,7 +17,6 @@ public class DemoGUI {
         frame.setContentPane(new DemoGUI().panel1);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
-        ServerController serverController = ServerController.getServerInstance();
         frame.setVisible(true);
     }
 

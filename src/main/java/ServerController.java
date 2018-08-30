@@ -8,7 +8,7 @@
 * Design Pattern: Singleton
 *
 */
-public class ServerController {
+public class ServerController implements MessageCentre{
     private volatile static ServerController ServerController;
     private ServerController (){}
     public static ServerController getServerInstance() {
@@ -21,4 +21,15 @@ public class ServerController {
         }
         return ServerController;
     }
+
+    @Override
+    public Message send() {
+        return null;
+    }
+
+    @Override
+    public void receive() {
+
+    }
+
 }
