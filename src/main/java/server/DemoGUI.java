@@ -1,10 +1,13 @@
 package server;
 
+import org.apache.log4j.Logger;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class DemoGUI {
+    private static Logger logger = Logger.getLogger(DemoGUI.class);
     public DemoGUI() {
         button1.addActionListener(new ActionListener() {
             @Override
@@ -21,6 +24,7 @@ public class DemoGUI {
         frame.pack();
         frame.setVisible(true);
     }
+
 
     private JPanel panel1;
     private JButton button1;
