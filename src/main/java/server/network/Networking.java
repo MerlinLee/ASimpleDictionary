@@ -55,7 +55,7 @@ public class Networking {
         Socket client = null;
         ThreadFactory threadFactory = new ThreadFactoryBuilder()
                 .setNameFormat("client-pool-%d").build();
-        ExecutorService pool = new ThreadPoolExecutor(5,20,
+        ExecutorService pool = new ThreadPoolExecutor(3,10,
                 0L,TimeUnit.MILLISECONDS,
                 new LinkedBlockingQueue<Runnable>(1024),threadFactory,new ThreadPoolExecutor.AbortPolicy());
         boolean f = true;
