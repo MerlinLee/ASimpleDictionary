@@ -1,5 +1,6 @@
-package server.network;
+package server.threads;
 
+import org.apache.log4j.Logger;
 import server.network.controllers.ModelController;
 
 import java.io.*;
@@ -12,7 +13,8 @@ import java.net.Socket;
  */
 public class ServerThread implements Runnable {
     private Socket client;
-
+    private final static String flag = "Server Thread: ";
+    private static Logger logger = Logger.getLogger(ServerThread.class);
     public static String getJsonData() {
         return jsonData;
     }
@@ -45,6 +47,7 @@ public class ServerThread implements Runnable {
             String info = null;
             while((info=br.readLine())!=null){
                 //communication
+                logger.info(flag+info);
                 jsonData = ModelController.getInstance().JsonProcess(info);
             }
             client.shutdownInput();

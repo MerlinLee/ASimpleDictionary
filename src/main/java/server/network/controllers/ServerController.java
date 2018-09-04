@@ -15,8 +15,10 @@ import server.network.Networking;
 *
 */
 public class ServerController implements MessageCentre {
+    private final static String flag = "Server Controller: ";
     private static Logger logger = Logger.getLogger(ServerController.class);
     private volatile static ServerController serverController;
+    private ModelController modelController;
     private Thread networkThread;
     private ServerController (String fileName){
         eventProcess("initialDict",fileName);
@@ -60,14 +62,28 @@ public class ServerController implements MessageCentre {
                 logger.error(flag+e.toString());
             }
         });
-
+        networkThread.start();
         return status;
     }
 
-    private void initialDict(String fileName){
+    private int initialDict(String fileName){
         if(fileName.equals("")){
             logger.error("Cannot find the dictionary file!");
+            return -1;
+            //FALSE
         }
+        Thread ioThreadInitial = new Thread(()->{
+            modelController = ModelController.getInstance();
+            modelController.initialDict(fileName);
+        });
+        ioThreadInitial.start();
+        try {
+            ioThreadInitial.join();
+        } catch (InterruptedException e) {
+            logger.error(flag+e.toString());
+        }
+        return 0;
+        //SUCCESS
     }
     @Override
     public Message send() {
@@ -81,8 +97,15 @@ public class ServerController implements MessageCentre {
 
     public void eventProcess(String key,String value){
         switch (key){
-            case "initialNetwork": initialSocket();
-            case "initialDict": initialDict(value);
+            case "initialNetwork":
+                initialSocket();
+                break;
+            case "initialDict":
+                int code = initialDict(value);
+                if(code==-1){
+                    logger.error(flag+"Initial Dictionary Fail!");
+                }
+                break;
             default:
                 break;
         }

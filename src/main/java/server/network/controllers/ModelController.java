@@ -3,7 +3,9 @@ package server.network.controllers;
 import com.alibaba.fastjson.JSON;
 import org.apache.log4j.Logger;
 import server.network.QueryModel;
-import server.network.ServerThread;
+import server.threads.ThreadIO;
+
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Model Controller
@@ -12,6 +14,15 @@ import server.network.ServerThread;
  * @date 04/09/2018
  */
 public class ModelController {
+    public ConcurrentHashMap<String, String> getDictionary() {
+        return dictionary;
+    }
+
+    public void setDictionary(ConcurrentHashMap<String, String> dictionary) {
+        this.dictionary = dictionary;
+    }
+
+    private ConcurrentHashMap<String,String> dictionary = new ConcurrentHashMap<>();
     private static Logger logger = Logger.getLogger(ModelController.class);
     private volatile static ModelController modelController;
     public static ModelController getInstance(){
@@ -31,5 +42,15 @@ public class ModelController {
         queryModel.setOperation("response");
         jsonData = JSON.toJSONString(queryModel);
         return jsonData;
+    }
+
+    public void initialDict(String fileName){
+        Thread thread = new Thread(new ThreadIO(fileName));
+        thread.start();
+        try {
+            thread.join();
+        } catch (InterruptedException e) {
+            logger.error(e.toString());
+        }
     }
 }
