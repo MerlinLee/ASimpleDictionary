@@ -51,7 +51,7 @@ public class ServerController implements MessageCentre{
                     if(sk.isAcceptable()){
                         SocketChannel sChannel = serverSocketChannel.accept();
                         serverSocketChannel.configureBlocking(false);
-                        sChannel.register(selector,SelectionKey.OP_READ);
+                        sChannel.register(selector,SelectionKey.OP_WRITE);
                     }else if(sk.isReadable()){
                         SocketChannel sChannel = (SocketChannel) sk.channel();
                         ByteBuffer buf = ByteBuffer.allocate(1024);
