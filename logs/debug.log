@@ -14,3 +14,30 @@
 2018-09-05 01:12:07  [ main:20168 ] - [ INFO ]  Create a instance for ServerController class, Successful.
 2018-09-05 01:13:02  [ Thread-0:0 ] - [ INFO ]  Create a instance for Model Controller class, Successful.
 2018-09-05 01:13:20  [ main:17553 ] - [ INFO ]  Create a instance for ServerController class, Successful.
+2018-09-05 01:35:19  [ Thread-0:0 ] - [ INFO ]  Create a instance for Model Controller class, Successful.
+2018-09-05 01:35:19  [ main:399 ] - [ INFO ]  Create a instance for ServerController class, Successful.
+2018-09-05 01:35:19  [ Thread-2:403 ] - [ INFO ]  Create a instance for Networking class, Successful.
+2018-09-05 01:35:36  [ Thread-2:16959 ] - [ INFO ]  Successful to connect with a client!
+2018-09-05 01:35:36  [ client-pool-0:17211 ] - [ INFO ]  Server Thread: {"info":"meanings","operation":"ADD"}
+2018-09-05 01:44:58  [ Thread-0:0 ] - [ INFO ]  Create a instance for Model Controller class, Successful.
+2018-09-05 01:44:58  [ main:398 ] - [ INFO ]  Create a instance for ServerController class, Successful.
+2018-09-05 01:44:58  [ Thread-2:400 ] - [ INFO ]  Create a instance for Networking class, Successful.
+2018-09-05 01:45:36  [ Thread-2:38339 ] - [ INFO ]  Successful to connect with a client!
+2018-09-05 01:45:36  [ client-pool-0:38560 ] - [ INFO ]  Server Thread: {"info":"apple","operation":"QUERY"}
+2018-09-05 01:45:50  [ Thread-2:52322 ] - [ INFO ]  Successful to connect with a client!
+2018-09-05 01:45:50  [ client-pool-1:52511 ] - [ INFO ]  Server Thread: {"info":"dmeo","operation":"QUERY"}
+2018-09-05 01:46:08  [ Thread-2:70291 ] - [ INFO ]  Successful to connect with a client!
+2018-09-05 01:46:08  [ client-pool-2:70476 ] - [ INFO ]  Server Thread: {"info":"demo","operation":"QUERY"}
+2018-09-05 01:48:59  [ Thread-0:0 ] - [ INFO ]  Create a instance for Model Controller class, Successful.
+2018-09-05 01:49:00  [ main:396 ] - [ INFO ]  Create a instance for ServerController class, Successful.
+2018-09-05 01:49:00  [ Thread-2:399 ] - [ INFO ]  Create a instance for Networking class, Successful.
+2018-09-05 01:49:09  [ Thread-2:9579 ] - [ INFO ]  Successful to connect with a client!
+2018-09-05 01:49:09  [ client-pool-0:9791 ] - [ INFO ]  Server Thread: {"info":"dmeo","operation":"QUERY"}
+2018-09-05 01:49:54  [ Thread-0:0 ] - [ INFO ]  Create a instance for Model Controller class, Successful.
+2018-09-05 01:49:55  [ main:391 ] - [ INFO ]  Create a instance for ServerController class, Successful.
+2018-09-05 01:49:55  [ Thread-2:393 ] - [ INFO ]  Create a instance for Networking class, Successful.
+2018-09-05 01:49:58  [ Thread-2:3515 ] - [ INFO ]  Successful to connect with a client!
+2018-09-05 01:49:58  [ client-pool-0:3704 ] - [ INFO ]  Server Thread: {"info":"dmeo","operation":"QUERY"}
+2018-09-05 01:50:17  [ Thread-2:22257 ] - [ INFO ]  Successful to connect with a client!
+2018-09-05 01:50:17  [ client-pool-1:22450 ] - [ INFO ]  Server Thread: {"info":"hello","operation":"QUERY"}
+2018-09-05 02:08:51  [ AWT-EventQueue-0:0 ] - [ INFO ]  Create a instance for ServerController class, Successful.

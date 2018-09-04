@@ -11,8 +11,8 @@ public class TestClient {
     public static void main(String[] args) {
         try {
             QueryModel queryModel = new QueryModel();
-            queryModel.setOperation("ADD");
-            queryModel.setInfo("meanings");
+            queryModel.setOperation("QUERY");
+            queryModel.setInfo("hello");
              Socket socket = new Socket("localhost",PORT);
              OutputStream os = socket.getOutputStream();
              PrintWriter pw = new PrintWriter(os);

@@ -39,7 +39,7 @@ public class ModelController {
 
     public String JsonProcess(String jsonData){
         QueryModel queryModel = JSON.parseObject(jsonData,QueryModel.class);
-        queryModel.setOperation("response");
+        switchController(queryModel);
         jsonData = JSON.toJSONString(queryModel);
         return jsonData;
     }
@@ -51,6 +51,24 @@ public class ModelController {
             thread.join();
         } catch (InterruptedException e) {
             logger.error(e.toString());
+        }
+    }
+
+    private void switchController(QueryModel queryModel){
+        switch (queryModel.getOperation()){
+                case "QUERY":
+                     queryModel.setOperation("RESPONSE");
+                     if(!queryModel.getInfo().equals("")){
+                         queryModel.setInfo(dictionary.get(queryModel.getInfo()));
+                     }else {
+                         queryModel.setOperation("404");
+                     }
+
+                    break;
+                case "ADD":
+                    break;
+                default:
+                    break;
         }
     }
 }

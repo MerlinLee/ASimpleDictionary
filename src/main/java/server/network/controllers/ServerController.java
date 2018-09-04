@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import server.Message;
 import server.MessageCentre;
 import server.network.Networking;
+import server.threads.NetworkingThread;
 
 /**
 *
@@ -49,19 +50,9 @@ public class ServerController implements MessageCentre {
         }
         return serverController;
     }
-    private int initialSocket(){
+    private int initialSocket(int portNumber){
         int status = 0;
-        networkThread = new Thread(()->{
-            String flag = "Network Thread: ";
-            Networking networking = Networking.getServerInstance(ServerController.getServerInstance());
-            try {
-                networking.tcpServerByPool(9999);
-                logger.info(flag+"Initial Network!");
-            } catch (Exception e) {
-                networking.close();
-                logger.error(flag+e.toString());
-            }
-        });
+        networkThread = new Thread(new NetworkingThread(portNumber));
         networkThread.start();
         return status;
     }
@@ -98,7 +89,7 @@ public class ServerController implements MessageCentre {
     public void eventProcess(String key,String value){
         switch (key){
             case "initialNetwork":
-                initialSocket();
+                initialSocket(Integer.parseInt(value));
                 break;
             case "initialDict":
                 int code = initialDict(value);
