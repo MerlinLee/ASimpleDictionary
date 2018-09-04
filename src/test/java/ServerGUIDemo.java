@@ -1,5 +1,5 @@
 import org.apache.log4j.Logger;
-import server.ServerController;
+import server.network.controllers.ServerController;
 
 public class ServerGUIDemo {
     private ServerController serverController;

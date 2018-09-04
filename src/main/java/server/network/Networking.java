@@ -2,6 +2,8 @@ package server.network;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import org.apache.log4j.Logger;
+import server.network.controllers.ServerController;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -13,13 +15,28 @@ import java.util.concurrent.*;
  * @date 04/09/2018
  */
 public class Networking {
+    private ServerController serverController;
     private volatile static Networking networking;
 
-    public static Networking getServerInstance() {
+    public Networking(ServerController serverController) {
+        this.serverController = serverController;
+    }
+
+    public int getServerPort() {
+        return serverPort;
+    }
+
+    public void setServerPort(int serverPort) {
+        this.serverPort = serverPort;
+    }
+
+    private int serverPort;
+
+    public static Networking getServerInstance(ServerController serverController) {
         if ( networking== null) {
             synchronized (Networking.class) {
                 if (networking == null) {
-                    networking = new Networking();
+                    networking = new Networking(serverController);
                     logger.info("Create a instance for Networking class, Successful.");
                 }
             }
@@ -28,9 +45,12 @@ public class Networking {
     }
     private static ServerSocket server;
     private static Logger logger = Logger.getLogger(Networking.class);
-    private static final int THREAD_POOL_SIZE = 3;
-    public static void tcpServerByPool(int serverPort)throws Exception{
-        server = new ServerSocket(8883);
+    public  void tcpServerByPool(int serverPort)throws Exception{
+        if(serverPort<=0){
+            serverPort = 8883;
+            logger.debug("NONE PORT NUMBER, SET DEFAULT PORT 8883");
+        }
+        server = new ServerSocket(serverPort);
         Socket client = null;
         ThreadFactory threadFactory = new ThreadFactoryBuilder()
                 .setNameFormat("client-pool-%d").build();

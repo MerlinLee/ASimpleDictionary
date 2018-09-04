@@ -1,4 +1,4 @@
-import server.ServerController;
+import server.network.controllers.ServerController;
 
 public class Main {
     public static void main(String[] args){

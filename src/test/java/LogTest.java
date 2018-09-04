@@ -1,10 +1,9 @@
 import client.ClientController;
 import org.apache.log4j.Logger;
 import org.junit.Test;
-import server.ServerController;
+import server.network.controllers.ServerController;
 
 import java.io.IOException;
-import java.nio.channels.ServerSocketChannel;
 
 public class LogTest {
     private static Logger logger = Logger.getLogger(LogTest.class);

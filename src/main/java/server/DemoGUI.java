@@ -1,6 +1,7 @@
 package server;
 
 import org.apache.log4j.Logger;
+import server.network.controllers.ServerController;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
