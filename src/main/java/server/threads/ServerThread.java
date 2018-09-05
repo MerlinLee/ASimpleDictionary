@@ -5,6 +5,8 @@ import server.network.controllers.ModelController;
 
 import java.io.*;
 import java.net.Socket;
+import java.nio.charset.StandardCharsets;
+
 /**
  * Server Thread
  *
@@ -53,6 +55,7 @@ public class ServerThread implements Runnable {
             client.shutdownInput();
             os = client.getOutputStream();
             pw = new PrintWriter(os);
+            logger.info(flag+jsonData);
             pw.write(jsonData+"\n");
             pw.flush();
         }catch (IOException e){

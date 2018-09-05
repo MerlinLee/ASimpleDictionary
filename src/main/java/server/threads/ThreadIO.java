@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import server.network.controllers.ModelController;
 
 import java.io.File;
+import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -22,7 +23,13 @@ public class ThreadIO implements Runnable{
     }
     private static void initialDict(String fileName){
         try {
-            Scanner read = new Scanner(new File(fileName));
+            File file = new File(fileName);
+            if(!file.exists()){
+                logger.info(flag+"File not Found!");
+            }else {
+                logger.info(flag+"File Found");
+            }
+            Scanner read = new Scanner(file, StandardCharsets.UTF_8);
             while (read.hasNext()){
                 String word = read.next().toLowerCase();
                 String meanings = read.nextLine();
@@ -31,6 +38,7 @@ public class ThreadIO implements Runnable{
                 }
                 dictionary.put(word,meanings);
             }
+            logger.info(flag+"Test "+dictionary.get("absolute"));
         } catch (java.io.IOException e) {
             logger.error(flag+e.toString());
         }

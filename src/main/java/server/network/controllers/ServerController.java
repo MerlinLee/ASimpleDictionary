@@ -73,6 +73,11 @@ public class ServerController implements MessageCentre {
         } catch (InterruptedException e) {
             logger.error(flag+e.toString());
         }
+        try {
+            ioThreadInitial.join();
+        } catch (InterruptedException e) {
+            logger.error(flag+e.toString());
+        }
         return 0;
         //SUCCESS
     }

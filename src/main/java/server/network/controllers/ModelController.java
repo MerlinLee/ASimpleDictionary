@@ -14,6 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * @date 04/09/2018
  */
 public class ModelController {
+    private final static String flag = "Model Controller: ";
     public ConcurrentHashMap<String, String> getDictionary() {
         return dictionary;
     }
@@ -49,6 +50,7 @@ public class ModelController {
         thread.start();
         try {
             thread.join();
+            logger.info(flag+"Initial Dict Complete!");
         } catch (InterruptedException e) {
             logger.error(e.toString());
         }
@@ -59,6 +61,7 @@ public class ModelController {
                 case "QUERY":
                      queryModel.setOperation("RESPONSE");
                      if(!queryModel.getInfo().equals("")){
+                         logger.info(flag+"recv info: "+queryModel.getInfo()+" dict :"+dictionary.get(queryModel.getInfo()));
                          queryModel.setInfo(dictionary.get(queryModel.getInfo()));
                      }else {
                          queryModel.setOperation("404");

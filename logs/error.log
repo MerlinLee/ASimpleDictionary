@@ -1,5 +1,2 @@
-2018-09-04 21:58:53  [ main:4 ] - [ ERROR ]  Cannot find the dictionary file!
- 2018-09-04 21:59:12  [ main:2 ] - [ ERROR ]  Cannot find the dictionary file!
- 2018-09-04 22:00:02  [ main:3 ] - [ ERROR ]  Cannot find the dictionary file!
- 2018-09-04 22:00:50  [ main:12812 ] - [ ERROR ]  Cannot find the dictionary file!
+2018-09-05 10:20:56  [ Thread-1:34 ] - [ ERROR ]  Thread IO: java.io.FileNotFoundException: 9999 (系统找不到指定的文件。)
  
