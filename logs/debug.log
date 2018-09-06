@@ -266,3 +266,24 @@
 2018-09-06 15:31:27  [ client-pool-2:131201 ] - [ INFO ]  Server Thread: {"info":"help","operation":"QUERY"}
 2018-09-06 15:31:27  [ client-pool-2:131202 ] - [ INFO ]  Model Controller: recv info: help dict :  —v. 1 provide with the means towards what is needed or sought (helped me with my work; helped me (to) pay my debts; helped him on with his coat). 2 (often absol.) Be of use or service to (does that help?). 3 contribute to alleviating (a pain or difficulty). 4 prevent or remedy (it can't be helped). 5 (usu. With neg.) A refrain from (can't help it; could not help laughing). B refl. Refrain from acting (couldn't help himself). 6 (often foll. By to) serve (a person with food). —n. 1 helping or being helped (need your help; came to our help). 2 person or thing that helps. 3 colloq. Domestic assistant or assistance. 4 remedy or escape (there is no help for it).  help oneself (often foll. By to) 1 serve oneself (with food etc.). 2 take without permission. Help a person out give a person help, esp. In difficulty.  helper n. [old english]
 2018-09-06 15:31:27  [ client-pool-2:131202 ] - [ INFO ]  Server Thread: {"info":"  —v. 1 provide with the means towards what is needed or sought (helped me with my work; helped me (to) pay my debts; helped him on with his coat). 2 (often absol.) Be of use or service to (does that help?). 3 contribute to alleviating (a pain or difficulty). 4 prevent or remedy (it can't be helped). 5 (usu. With neg.) A refrain from (can't help it; could not help laughing). B refl. Refrain from acting (couldn't help himself). 6 (often foll. By to) serve (a person with food). —n. 1 helping or being helped (need your help; came to our help). 2 person or thing that helps. 3 colloq. Domestic assistant or assistance. 4 remedy or escape (there is no help for it). \u007F help oneself (often foll. By to) 1 serve oneself (with food etc.). 2 take without permission. Help a person out give a person help, esp. In difficulty. \u007F helper n. [old english]","operation":"RESPONSE_QUERY"}
+2018-09-06 15:36:50  [ Thread-0:0 ] - [ INFO ]  Create a instance for Model Controller class, Successful.
+2018-09-06 15:36:50  [ Thread-1:6 ] - [ INFO ]  Thread IO: File Found
+2018-09-06 15:36:51  [ Thread-0:300 ] - [ INFO ]  Model Controller: Initial Dict Complete!
+2018-09-06 15:36:51  [ main:303 ] - [ INFO ]  Create a instance for ServerController class, Successful.
+2018-09-06 15:36:51  [ Thread-2:313 ] - [ INFO ]  Create a instance for Networking class, Successful.
+2018-09-06 15:42:41  [ main:0 ] - [ INFO ]  Create a instance for Client Controller class, Successful.
+2018-09-06 15:42:41  [ main:24 ] - [ INFO ]  Create a instance for Client Controller class, Successful.
+2018-09-06 15:42:54  [ main:0 ] - [ INFO ]  Create a instance for Client Controller class, Successful.
+2018-09-06 15:42:54  [ main:3 ] - [ INFO ]  Create a instance for Client Controller class, Successful.
+2018-09-06 15:45:25  [ main:0 ] - [ INFO ]  Create a instance for Client Controller class, Successful.
+2018-09-06 15:45:25  [ main:3 ] - [ INFO ]  Create a instance for Client Controller class, Successful.
+2018-09-06 15:45:41  [ main:0 ] - [ INFO ]  Create a instance for Client Controller class, Successful.
+2018-09-06 15:45:41  [ main:7 ] - [ INFO ]  Create a instance for Client Controller class, Successful.
+2018-09-06 15:45:55  [ main:0 ] - [ INFO ]  Create a instance for Client Controller class, Successful.
+2018-09-06 15:45:55  [ main:5 ] - [ INFO ]  Create a instance for Client Controller class, Successful.
+2018-09-06 15:46:09  [ main:0 ] - [ INFO ]  Create a instance for Client Controller class, Successful.
+2018-09-06 15:46:09  [ main:2 ] - [ INFO ]  Create a instance for Client Controller class, Successful.
+2018-09-06 16:34:37  [ main:0 ] - [ INFO ]  Create a instance for Client Controller class, Successful.
+2018-09-06 16:34:37  [ main:3 ] - [ INFO ]  Create a instance for Client Controller class, Successful.
+2018-09-06 16:39:58  [ main:0 ] - [ INFO ]  Create a instance for Client Controller class, Successful.
+2018-09-06 16:39:58  [ main:1 ] - [ INFO ]  Create a instance for Client Controller class, Successful.
