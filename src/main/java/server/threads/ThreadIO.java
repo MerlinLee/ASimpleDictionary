@@ -7,7 +7,12 @@ import java.io.File;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 import java.util.concurrent.ConcurrentHashMap;
-
+/**
+ * Thread IO
+ *
+ * @author MINGFENG LI
+ * @date 06/09/2018
+ */
 public class ThreadIO implements Runnable{
     private final static String flag = "Thread IO: ";
     private String fileName;
@@ -38,7 +43,7 @@ public class ThreadIO implements Runnable{
                 }
                 dictionary.put(word,meanings);
             }
-            logger.info(flag+"Test "+dictionary.get("absolute"));
+            //logger.info(flag+"Test "+dictionary.get("absolute"));
         } catch (java.io.IOException e) {
             logger.error(flag+e.toString());
         }

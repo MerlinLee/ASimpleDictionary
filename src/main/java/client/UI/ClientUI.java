@@ -1,8 +1,11 @@
 package client.UI;
 
 import client.ClientController;
+import com.alibaba.fastjson.JSON;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import org.apache.log4j.Logger;
+import server.network.WordModel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,7 +13,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.concurrent.*;
-
+/**
+ * UI
+ *
+ * @author MINGFENG LI
+ * @date 06/09/2018
+ */
 public class ClientUI implements ItemListener, ActionListener {
     private JPanel cards;
     final static String ADD = "Add Word";
@@ -21,6 +29,26 @@ public class ClientUI implements ItemListener, ActionListener {
     private JButton btn_query;
     private JButton btn_add;
     private JButton btn_remove;
+
+    public JTextField getjTextField_input() {
+        return jTextField_input;
+    }
+
+    public void setjTextField_input(JTextField jTextField_input) {
+        this.jTextField_input = jTextField_input;
+    }
+
+    private JTextField jTextField_input;
+
+    public JTextArea getjTextArea_add_meanings() {
+        return jTextArea_add_meanings;
+    }
+
+    public void setjTextArea_add_meanings(JTextArea jTextArea_add_meanings) {
+        this.jTextArea_add_meanings = jTextArea_add_meanings;
+    }
+
+    private JTextArea jTextArea_add_meanings;
 
     public JTextArea getjTextArea() {
         return jTextArea;
@@ -64,28 +92,39 @@ public class ClientUI implements ItemListener, ActionListener {
 
     public void addComponentToPane(Container pane) {
         JPanel comboBoxPane = new JPanel();
-        String comboBoxItems[] = { QUERY,ADD ,REMOVE};
+        String comboBoxItems[] = { QUERY,ADD };
         JComboBox cb = new JComboBox(comboBoxItems);
         cb.setEditable(false);
         cb.addItemListener(this);
         comboBoxPane.add(cb);
 
         //Create the "cards".
-        JPanel card1 = new JPanel();
-        card1.add(btn_add = new JButton("Add"));
-        card1.add(btn_query = new JButton("Search"));
-        card1.add(btn_remove = new JButton("Remove"));
-        btn_query.addActionListener(this);
+        JPanel card2 = new JPanel();
+        card2.add(btn_add = new JButton("Add"));
+        card2.add(new JScrollPane(jTextArea_add_meanings = new JTextArea("Input meanings here...",3,10)));
+        jTextArea_add_meanings.setLineWrap(true);
+        jTextArea_add_meanings.setWrapStyleWord(true);
+        card2.add(jTextField_input = new JTextField("Input Word",8));
+        card2.add(btn_remove = new JButton("Remove"));
+
         btn_add.addActionListener(this);
         btn_remove.addActionListener(this);
-        JPanel card2 = new JPanel();
-        card2.add(jTextField = new JTextField("TextField", 20));
-        card2.add(btn_query);
-        card2.add(jTextArea = new JTextArea());
+        JPanel card1 = new JPanel();
+        JPanel subCard_1 = new JPanel();
+        JPanel subCard_2 = new JPanel();
+        subCard_2.add(new JScrollPane(jTextArea = new JTextArea(5,20)));
+        jTextArea.setLineWrap(true);
+        jTextArea.setWrapStyleWord(true);
+        subCard_1.add(jTextField = new JTextField("TextField", 8));
+        subCard_1.add(btn_query = new JButton("Search"));
+        btn_query.addActionListener(this);
+        card1.add(subCard_2);
+        card1.add(subCard_1);
+        //card2.add(jTextArea = new JTextArea());
         //Create the panel that contains the "cards".
         cards = new JPanel(new CardLayout());
-        cards.add(card2, ADD);
         cards.add(card1, QUERY);
+        cards.add(card2, ADD);
 
         pane.add(comboBoxPane, BorderLayout.PAGE_START);
         pane.add(cards, BorderLayout.CENTER);
@@ -101,8 +140,20 @@ public class ClientUI implements ItemListener, ActionListener {
                 });
                 break;
             case "Add":
+                pool.execute(()->{
+                    WordModel wordModel = new WordModel();
+                    wordModel.setMeanings(jTextArea_add_meanings.getText());
+                    wordModel.setWord(jTextField_input.getText());
+                    String info = JSON.toJSONString(wordModel);
+                    ClientController.getServerInstance().
+                            createModel("ADD",info);
+                });
                 break;
             case "Remove":
+                pool.execute(()->{
+                    ClientController.getServerInstance().
+                            createModel("REMOVE",jTextField_input.getText());
+                });
                 break;
             default:
                 break;

@@ -40,7 +40,12 @@ public class ClientNetwork implements Runnable {
             String info = null;
             while((info=br.readLine())!=null){
                 try {
-                    ClientController.getServerInstance().getClientUI().getjTextField().setText(info);
+                    ClientController.getServerInstance().getClientUI()
+                            .getjTextArea()
+                            .setText(JSON.parseObject(info,QueryModel.class).getInfo());
+                    ClientController.getServerInstance().getClientUI()
+                            .getjTextArea_add_meanings()
+                            .setText(JSON.parseObject(info,QueryModel.class).getInfo());
                 }catch (Exception e){
                     System.out.println(e.toString());
                 }
